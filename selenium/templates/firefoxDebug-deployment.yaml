@@ -8,6 +8,9 @@ metadata:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
 spec:
   replicas: {{ .Values.firefoxDebug.replicas }}
+  selector:
+    matchLabels:
+      app: {{ template "selenium.firefoxDebug.fullname" . }}
   template:
     metadata:
       labels:

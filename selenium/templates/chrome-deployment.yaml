@@ -8,6 +8,9 @@ metadata:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
 spec:
   replicas: {{ .Values.chrome.replicas }}
+  selector:
+    matchLabels:
+      app: {{ template "selenium.chrome.fullname" . }}
   template:
     metadata:
       labels:
